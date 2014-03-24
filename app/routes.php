@@ -13,20 +13,9 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return 'hello';
 });
 
-Route::get('/sayhello/{name}', function($name)
-{
-    if ($name == "Chris")
-    {
-        return Redirect::to('/');
-    }
-    else
-    {
-        return "Hello, $name!";
-    }
-});
 
 Route::get('/resume', function()
 {
@@ -38,3 +27,27 @@ Route::get('/portfolio', function()
 	return 'This is my portfolio';
 });
 
+Route::get('/sayhello/{name}', function($name)
+{
+	$data = array (
+		'name' => $name
+	);
+    return View::make('my-first-view')->with($data);
+});
+
+Route::get('/rolldice/{guess}', function($guess)
+{	
+	$random = rand(1,6);
+	$data = array (
+		'random' => $random,
+		'guess' => $guess
+	);
+	if ($random == $guess) {
+		echo "You guessed the right number!";
+	}
+	else {
+		echo "you guessed the wrong numer!";
+	}
+
+	return View::make("roll-dice")->with($data);
+});
