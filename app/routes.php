@@ -30,11 +30,11 @@ Route::get('/sayhello/{name}', function($name)
 
 Route::get('/resume', function()
 {
-	return View::make('This is my resume');
+	return 'This is my resume';
 });
 
 Route::get('/portfolio', function()
 {
-	return View::make('This is my portfolio');
+	return 'This is my portfolio';
 });
 
