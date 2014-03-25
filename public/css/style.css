@@ -1,0 +1,61 @@
+.container-fluid {
+	padding-left: 50px;
+	font-size: 16px;
+}
+
+.intro {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+#myname {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+p.name {
+	font-size: 16px;
+	font-weight: bold;
+	height: 60px;
+}
+
+span {
+	color: #999;
+	font-size: 13px;
+}
+
+.logolg {
+	height: 90px;
+	width: 110px;
+}
+
+.logomd {
+	height: 60px;
+	width: 110px;
+}
+
+.logosm {
+	height: 30px;
+}
+
+.progress-bar {
+  background-color: whiteSmoke;
+  border-radius: 2px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25) inset;
+
+  width: 250px;
+  height: 20px;
+  
+  position: relative;
+  display: block;
+}
+  
+.progress-bar > span {
+  background-color: blue;
+  border-radius: 2px;
+
+  display: block;
+  text-indent: -9999px;
+}
+
+
