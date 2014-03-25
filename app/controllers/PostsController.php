@@ -9,7 +9,7 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-		return "Shows a lists of all posts";
+		return "Show posts";
 	}
 
 	/**
@@ -29,6 +29,7 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{
+		Log::info(Input::all());
 		return Redirect::back()->withInput();
 	}
 
