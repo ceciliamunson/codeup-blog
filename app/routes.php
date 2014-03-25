@@ -11,11 +11,7 @@
 |
 */
 
-Route::get('/', function()
-{
-	return 'hello';
-});
-
+Route::get('/', 'HomeController@showWelcome');
 
 Route::get('/resume', 'HomeController@showResume');
 
@@ -23,28 +19,6 @@ Route::get('/portfolio', 'HomeController@showPortfolio');
 
 Route::get('/contact', 'HomeController@showContact');
 
-Route::get('/sayhello/{name}', function($name)
-{
-	$data = array (
-		'name' => $name
-	);
-    return View::make('my-first-view')->with($data);
-});
+Route::get('/create', 'PostsController@create');
 
-Route::get('/rolldice/{guess}', function($guess)
-{	
-	$random = rand(1,6);
-	$data = array (
-		'random' => $random,
-		'guess' => $guess
-	);
-	if ($random == $guess) {
-		echo "You guessed the right number!";
-	}
-	else {
-		echo "you guessed the wrong numer!";
-	}
-
-	return View::make("roll-dice")->with($data);
-});
-
+Route::resource('posts', 'PostsController');
