@@ -17,15 +17,11 @@ Route::get('/', function()
 });
 
 
-Route::get('/resume', function()
-{
-	return 'This is my resume';
-});
+Route::get('/resume', 'HomeController@showResume');
 
-Route::get('/portfolio', function()
-{
-	return 'This is my portfolio';
-});
+Route::get('/portfolio', 'HomeController@showPortfolio');
+
+Route::get('/contact', 'HomeController@showContact');
 
 Route::get('/sayhello/{name}', function($name)
 {
@@ -51,3 +47,4 @@ Route::get('/rolldice/{guess}', function($guess)
 
 	return View::make("roll-dice")->with($data);
 });
+
