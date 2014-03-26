@@ -1,6 +1,6 @@
 <?php
 
-class PostsController extends \BaseController {
+class PostsController extends BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -9,7 +9,9 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-		return "Show posts";
+		//show lists of all posts
+		$posts = Post::all();
+		return View::make('posts.index')->with('posts', $posts);
 	}
 
 	/**
@@ -29,8 +31,14 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{
-		Log::info(Input::all());
-		return Redirect::back()->withInput();
+		$post = new Post();
+		$post->title = Input::get('title');
+		$post->body = Input::get('body');
+		$post->save();
+
+		return Redirect::action('PostsController@index');
+		//Log::info(Input::all());
+		//return Redirect::back()->withInput();
 	}
 
 	/**
@@ -41,7 +49,8 @@ class PostsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		return "Shows a specific post";
+		$post = Post::find($id);
+		return View::make('posts.show')->with('post', $post);
 	}
 
 	/**
