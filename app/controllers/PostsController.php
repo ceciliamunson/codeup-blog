@@ -37,8 +37,7 @@ class PostsController extends BaseController {
 		$post->save();
 
 		return Redirect::action('PostsController@index');
-		//Log::info(Input::all());
-		//return Redirect::back()->withInput();
+	
 	}
 
 	/**
