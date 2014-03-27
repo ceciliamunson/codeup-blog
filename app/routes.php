@@ -22,3 +22,4 @@ Route::get('/contact', 'HomeController@showContact');
 Route::get('/create', 'PostsController@create');
 
 Route::resource('posts', 'PostsController');
+
