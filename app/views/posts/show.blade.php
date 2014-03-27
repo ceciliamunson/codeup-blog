@@ -8,6 +8,6 @@
 
 	<p>{{{$post->body}}}</p>
 </div>
-<p><a href="{{{ action('PostController@index') }}}">Return to posts listing</a></p>
+<p><a href="{{{ action('PostsController@index') }}}">Return to posts listing</a></p>
 
 @stop

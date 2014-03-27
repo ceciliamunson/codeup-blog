@@ -9,12 +9,14 @@
 	    <label for="title" class="col-sm-2 control-label">Title</label>
 	    <div class="col-sm-10">
 	      <input type="text" class="form-control" id="title" name="title" value="{{{ Input::old('title') }}}">
+	      {{ $errors->has('title') ? $errors->first('title', '<p><span class="help-block">:message</span></p>') : " " }}
 	    </div>
 	  </div>
 	  <div class="form-group">
 	    <label for="body" class="col-sm-2 control-label">Body</label>
 	    <div class="col-sm-10">
-	      <textarea rows="6" class="form-control" id="body" name="body">"{{{ Input::old('body') }}}"</textarea>
+	      <textarea rows="6" class="form-control" id="body" name="body">{{{ Input::old('body') }}}</textarea>
+	      {{ $errors->has('body') ? $errors->first('body', '<p><span class="help-block">:message</span></p>') : " " }}
 	    </div>
 	  </div>
 	  <div class="form-group">
