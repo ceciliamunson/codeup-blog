@@ -3,20 +3,20 @@
 @section('content')
 <div class="container">
 	<h1 style="margin-left:120px;">Create a New Post</h1>
-	
-	<form class="form-horizontal" role="form" method="POST" action="{{{ action('PostsController@store') }}}">
+
+	{{ Form::open(array('action' => 'PostsController@store', 'class' => 'form-horizontal')) }}
 	  <div class="form-group">
-	    <label for="title" class="col-sm-2 control-label">Title</label>
+	    {{ Form::label('title', 'Title', array('class' => 'col-sm-2 control-label')) }}
 	    <div class="col-sm-10">
-	      <input type="text" class="form-control" id="title" name="title" value="{{{ Input::old('title') }}}">
-	      {{ $errors->has('title') ? $errors->first('title', '<p><span class="help-block">:message</span></p>') : " " }}
+			{{ Form::text('title', null, array('class' => 'form-control', 'placeholder' => 'Title')) }}
+	    	{{ $errors->has('title') ? $errors->first('title', '<p><span class="help-block">:message</span></p>') : " " }}
 	    </div>
 	  </div>
 	  <div class="form-group">
-	    <label for="body" class="col-sm-2 control-label">Body</label>
+	    {{ Form::label('body', 'Body', array('class' => 'col-sm-2 control-label')) }}
 	    <div class="col-sm-10">
-	      <textarea rows="6" class="form-control" id="body" name="body">{{{ Input::old('body') }}}</textarea>
-	      {{ $errors->has('body') ? $errors->first('body', '<p><span class="help-block">:message</span></p>') : " " }}
+			{{ Form::textarea('body', null, array('class' => 'form-control', 'row' => '5')) }}
+	      	{{ $errors->has('body') ? $errors->first('body', '<p><span class="help-block">:message</span></p>') : " " }}
 	    </div>
 	  </div>
 	  <div class="form-group">
@@ -24,7 +24,7 @@
 	      <button type="submit" class="btn btn-default">Create New Post</button>
 	    </div>
 	  </div>
-	</form>
+	{{ Form::close() }}
 </div>
 	
 @stop
