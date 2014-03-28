@@ -2,6 +2,15 @@
 
 class PostsController extends BaseController {
 
+	public function __construct()
+	{
+		//include parent constructor
+		parent::__construct();
+
+		// Run an auth filter before all methods except index and show
+		$this->beforeFilter('auth.basic', ['except' => ['index', 'show']]);
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -38,6 +47,7 @@ class PostsController extends BaseController {
     	// attempt validation
     	if ($validator->fails())
     	{
+    		Session::flash('errorMessage', 'Post could not be created');
     	    // validation failed, redirect to the post create page with validation errors and old inputs
     	    return Redirect::back()->withInput()->withErrors($validator);
     	}
@@ -49,7 +59,7 @@ class PostsController extends BaseController {
 			$post->title = Input::get('title');
 			$post->body = Input::get('body');
 			$post->save();
-
+			Session::flash('successMessage', 'Post created succesfully');
 			return Redirect::action('PostsController@index');
 		}
 	
@@ -88,13 +98,13 @@ class PostsController extends BaseController {
 	public function update($id)
 	{
 		$post = Post::findOrFail($id);
-
 		// create the validator
     	$validator = Validator::make(Input::all(), Post::$rules);
 	
     	// attempt validation
     	if ($validator->fails())
     	{
+			Session::flash('errorMessage', 'Post could not be updated');
     	    // validation failed, redirect to the post create page with validation errors and old inputs
     	    return Redirect::back()->withInput()->withErrors($validator);
     	}
@@ -105,7 +115,7 @@ class PostsController extends BaseController {
 			$post->title = Input::get('title');
 			$post->body = Input::get('body');
 			$post->save();
-
+			Session::flash('successMessage', 'Post updated succesfully');
 			return Redirect::action('PostsController@show', $post->id);
 		}
 	}
@@ -119,6 +129,7 @@ class PostsController extends BaseController {
 	public function destroy($id)
 	{
 		Post::findOrFail($id)->delete();
+
 		return Redirect::action('PostsController@index');
 	}
 
