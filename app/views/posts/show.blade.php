@@ -1,13 +1,14 @@
 @extends('layouts.master')
 
 @section('content')
-
-<div class="blog-post">
-	<h2 class="blog-post-title">{{{$post->title}}}</h2>
-	<p class="blog-post-meta">{{{$post->created_at}}}<a href="#">Cecilia</a></p>
-
-	<p>{{{$post->body}}}</p>
+<div class="container">
+	<div class="blog-post">
+		<h2 class="blog-post-title">{{{$post->title}}}</h2>
+		<p class="blog-post-meta">{{{$post->created_at}}}<a href="#">Cecilia</a></p>
+	
+		<p>{{{$post->body}}}</p>
+	</div>
+	<p><a href="{{{ action('PostsController@index') }}}">Return to posts listing</a></p>
 </div>
-<p><a href="{{{ action('PostsController@index') }}}">Return to posts listing</a></p>
 
 @stop
