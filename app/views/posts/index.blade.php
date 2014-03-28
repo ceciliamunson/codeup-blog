@@ -5,7 +5,7 @@
 @foreach ($posts as $post)
 	<div class="blog-title">
 		<a href="{{{ action('PostsController@show', $post->id) }}}">{{{ $post->title }}}</a>
-		<p class="form-group">{{{ $post->created_at }}}<a href="#">Cecilia</a></p>
+		<p class="form-group">{{{ $post->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i A') }}}  by <a href="#">Cecilia Munson</a></p>
 	
 		<p>{{{ $post->body }}}</p>
 	</div>
