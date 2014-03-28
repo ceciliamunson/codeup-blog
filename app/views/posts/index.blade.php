@@ -9,17 +9,15 @@
 	
 		<p>{{{ $post->body }}}</p>
 	</div>
-	<p>
-		<!-- <a href="{{{ action('PostsController@update') }}}">Update Post</a> -->
-	</p>
+	
 @endforeach
+
+{{ $posts->links() }}
 
 <p>
 	<a href="{{{ action('PostsController@create') }}}">Create New Post</a>
 </p>
-<p>
-	<a href="{{{ action('PostsController@edit', $post->id) }}}">Edit the Post</a>
-</p>
+
 
 
 @stop

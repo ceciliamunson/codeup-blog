@@ -10,7 +10,7 @@ class PostsController extends BaseController {
 	public function index()
 	{
 		//show lists of all posts
-		$posts = Post::all();
+		$posts = Post::paginate(4);
 		return View::make('posts.index')->with('posts', $posts);
 	}
 
@@ -118,7 +118,8 @@ class PostsController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		return "Deletes a specific post";
+		Post::findOrFail($id)->delete();
+		return Redirect::action('PostsController@index');
 	}
 
 }
