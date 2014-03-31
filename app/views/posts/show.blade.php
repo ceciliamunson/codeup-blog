@@ -5,7 +5,7 @@
 	<div class="container">
 		<div class="blog-post">
 			<h2 class="blog-post-title">{{{$post->title}}}</h2>
-			<p class="blog-post-meta">{{{ $post->created_at->setTimezone('America/Chicago')->format('l, F jS Y') }}}  by <a href="#">Cecilia Munson</a></p>	
+			<p class="blog-post-meta">{{{ $post->created_at->format('l, F jS Y') }}}  by <a href="#">Cecilia Munson</a></p>	
 			<p>{{{$post->body}}}</p>
 		</div>
 		<p><a href="{{{ action('PostsController@index') }}}">Return to posts listing</a></p>
