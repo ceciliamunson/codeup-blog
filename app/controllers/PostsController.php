@@ -19,12 +19,13 @@ class PostsController extends BaseController {
 	public function index()
 	{
 		//show lists of all posts
+		$post = Post::with('user');
 		$search = Input::get('search');
 		$query = Post::orderBy('created_at', 'desc');
-		if (is_null($search))
-			{
-				$posts = $query->paginate(4);
-		} else {
+		if (is_null($search)) {
+			$posts = $query->paginate(4);
+		} 
+		else {
 			$posts = $query->where('title', 'LIKE', "%{$search}%")
 						   ->orWhere('body', 'LIKE', "%{$search}%")
 						   ->paginate(4);
@@ -65,6 +66,7 @@ class PostsController extends BaseController {
     	{
     		// validation succeeded, create and save the post
 			$post = new Post();
+			$post->user_id = 1;
 			$post->title = Input::get('title');
 			$post->body = Input::get('body');
 			$post->save();
