@@ -14,9 +14,10 @@
 		{{ Form::open(array('action' => array('PostsController@destroy', $post->id), 'method' => 'delete', 'id' => 'deleteFormPost')) }}
 		{{ Form::close() }}
 	</div>
-	
+@stop
+@section('bottomscript')	
 	<script>
-	
+
 	$('#btnDeletePost').on('click', function (e) {
 		e.preventDefault();
 		if (confirm('Are you sure you want to delete this post?')) {
