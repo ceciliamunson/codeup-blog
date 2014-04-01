@@ -19,8 +19,17 @@ class PostsController extends BaseController {
 	public function index()
 	{
 		//show lists of all posts
-		$posts = Post::orderBy('created_at', 'desc')->paginate(4);
-		return View::make('posts.index')->with('posts', $posts);
+		$search = Input::get('search');
+		$query = Post::orderBy('created_at', 'desc');
+		if (is_null($search))
+			{
+				$posts = $query->paginate(4);
+		} else {
+			$posts = $query->where('title', 'LIKE', "%{$search}%")
+						   ->orWhere('body', 'LIKE', "%{$search}%")
+						   ->paginate(4);
+		}
+		return View::make('posts.index')->with(array('posts' => $posts));
 	}
 
 	/**
