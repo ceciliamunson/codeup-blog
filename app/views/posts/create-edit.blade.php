@@ -2,21 +2,21 @@
 
 @section('content')
 
+<div class="container">
 @if (empty($post->id))
 
-	<h1 class="blog-title">Create a New Post</h1>
+	<h1 class="blog-title">Create New Post</h1>
 	<hr>
-	{{ Form::open(array('action' => 'PostsController@store', 'class' => 'form-horizontal')) }}
+	{{ Form::open(array('action' => 'PostsController@store', 'files' => true, 'class' => 'form-horizontal')) }}
 
 @else
 
 	<h1 class="blog-title">Edit Post</h1>
 	<hr>
-	{{ Form::model($post, array('action' => array('PostsController@update', $post->id), 'method' => 'PUT', 'class' => 'form-horizontal')) }}
+	{{ Form::model($post, array('action' => array('PostsController@update', $post->id), 'method' => 'PUT', 'files' => true, 'class' => 'form-horizontal')) }}
 
 @endif
 
-<div class="container">
 	<div class="blog-post-title">
 		<div class="form-group">
 		     {{ Form::label('title', 'Title', array('class' => 'col-sm-2 control-label')) }}
@@ -34,21 +34,22 @@
 		</div>
 		<div class="form-group">
 		    <div class="col-sm-offset-2 col-sm-10">
-		    	@if (empty($post->id))
-	
-		      		<button type="submit" class="btn btn-default">Create New Post</button>
-	
-		      	@else
-	
-		      		<button type="submit" class="btn btn-default">Edit Post</button>
-	
-		      	@endif
+    			{{ Form::file('image') }}
+				<br>
+		      	<button type="submit" class="btn btn-default">Submit</button>
 		    </div>
 		</div>
 	</div>
+	{{ Form::close() }}
 </div>
-	
-{{ Form::close() }}
+@stop
 
-	
+@section('bottomscript')
+
+	<script>
+	    // Replace the body with a CKEditor
+	    // instance, using default configuration.
+	    CKEDITOR.replace( 'body' );
+	</script>
+		
 @stop

@@ -16,4 +16,12 @@ class BaseModel extends Eloquent {
 	    return $utc->setTimezone('America/Chicago');
 	}
 
+	/**
+	 * Hash password
+	 */
+	public function setPasswordAttribute($value)
+	{
+	    $this->attributes['password'] = Hash::make($value);
+	}
+
 }

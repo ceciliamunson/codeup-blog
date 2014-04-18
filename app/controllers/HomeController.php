@@ -15,6 +15,15 @@ class HomeController extends BaseController {
 	|
 	*/
 
+	// public function __construct()
+	// {
+		// include parent constructor
+		// parent::__construct();
+// 
+		// Run an auth filter before all methods except index and show
+		// $this->beforeFilter('auth', ['except' => ['index', 'show']]);
+	// }
+
 	public function showWelcome()
 	{
 		return View::make('welcome');
@@ -35,4 +44,33 @@ class HomeController extends BaseController {
 		return View::make('contact'); 
 	}
 
+	public function showLogin()
+	{
+		return View::make('login'); 
+	}
+
+	public function doLogin()
+	{
+
+		if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password'))))
+		{
+			Session::flash('successMessage', 'Login succesful!');
+		    return Redirect::intended('/posts');
+		}
+		else
+		{
+		    // login failed, go back to the login screen
+		    Session::flash('errorMessage', 'Login failed, please check your inputs');
+		    return Redirect::back()->withInput();
+		}
+
+    	
+	}
+
+	public function logout()
+	{
+		Auth::logout(); 
+		return Redirect::action('PostsController@index');
+	}
+		
 }

@@ -8,7 +8,10 @@ class PostsController extends BaseController {
 		parent::__construct();
 
 		// Run an auth filter before all methods except index and show
-		$this->beforeFilter('auth.basic', ['except' => ['index', 'show']]);
+		$this->beforeFilter('auth', ['except' => ['index', 'show']]);
+
+		// Run post protect filter to make sure users can only manage their own posts
+		$this->beforeFilter('post.protect', ['only' => ['edit', 'update', 'destroy']]);
 	}
 
 	/**
@@ -19,9 +22,8 @@ class PostsController extends BaseController {
 	public function index()
 	{
 		//show lists of all posts
-		$post = Post::with('user');
 		$search = Input::get('search');
-		$query = Post::orderBy('created_at', 'desc');
+		$query = Post::with('user')->orderBy('created_at', 'desc');
 		if (is_null($search)) {
 			$posts = $query->paginate(4);
 		} 
@@ -66,9 +68,16 @@ class PostsController extends BaseController {
     	{
     		// validation succeeded, create and save the post
 			$post = new Post();
-			$post->user_id = 1;
+			$post->user_id = Auth::user()->id;
 			$post->title = Input::get('title');
-			$post->body = Input::get('body');
+    		$purifier = new HTMLPurifier();
+    		$clean_html = $purifier->purify(Input::get('body'));
+			$post->body = $clean_html;
+			if (Input::hasFile('image'))
+			{
+				$image = Input::file('image');
+				$post->image_path = Post::upload_image($image);
+			}
 			$post->save();
 			Session::flash('successMessage', 'Post created succesfully');
 			return Redirect::action('PostsController@index');
@@ -125,6 +134,10 @@ class PostsController extends BaseController {
     		// validation succeeded, create and save the post
 			$post->title = Input::get('title');
 			$post->body = Input::get('body');
+			if (Input::hasFile('image'))
+			{
+				$post->image_path = Post::upload_image(Input::file('image'));
+			}
 			$post->save();
 			Session::flash('successMessage', 'Post updated succesfully');
 			return Redirect::action('PostsController@show', $post->id);

@@ -11,16 +11,19 @@
         <div class="col-sm-8 blog-main">
         	<div class="blog-post">
           		<hr>
-          		{{ Form::open(array('action' => array('PostsController@index'), 'method' => 'GET', )) }}
+          		{{ Form::open(array('action' => array('PostsController@index'), 'method' => 'GET')) }}
           		  {{ Form::label('search', 'Search Posts') }}
           		  {{ Form::text('search') }}
-          		  {{ Form::submit('Search') }}
+          		  {{ Form::submit('Search', array('class'=> 'btn btn-default')) }}
           		{{ Form::close() }}
 
         		@foreach ($posts as $post)
         		  <h2 class="blog-post-title"><a href="{{{ action('PostsController@show', $post->id) }}}">{{{ $post->title }}}</a></h2>
-        		  <p class="blog-post-meta">{{{ $post->created_at->format('l, F jS Y') }}}  by <a href="#">Cecilia Munson</a></p>
+        		  <p><img src="{{{ $post->image_path }}}"></p>
+        		  <p class="blog-post-meta">{{{ $post->created_at->format('l, F jS Y') }}}  by <a href="#">Cecilia</a></p>
         		  <p>{{ Str::words($post->body, 20) }}</p>
+        		  <br>
+        		  <hr>
         		
         		@endforeach
 		
