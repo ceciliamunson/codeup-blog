@@ -6,6 +6,10 @@ body {
   width: 100%;
 }
 
+h3 {
+  color: #898787;
+}
+
 .vert-text {
   display: table-cell;
   vertical-align: middle;
@@ -15,103 +19,80 @@ body {
 .vert-text h1 {
   padding: 0;
   margin: 0;
-  font-size: 4.5em;
+  font-size: 6.5em;
+  color: #FFF;
   font-weight: 700;
 }
 
-/* Side Menu */
-
-#sidebar-wrapper {
-  margin-right: -250px;
-  right: 0;
-  width: 250px;
-  background: #000;
-  position: fixed;
-  height: 100%;
-  overflow-y: auto;
-  z-index: 1000;
-  -webkit-transition: all 0.4s ease 0s;
-  -moz-transition: all 0.4s ease 0s;
-  -ms-transition: all 0.4s ease 0s;
-  -o-transition: all 0.4s ease 0s;
-  transition: all 0.4s ease 0s;
+/* Navbar starts */
+.navbar {
+  margin-bottom: 0px;
+}
+#nav {
+  width: 100%;
+  position:static;
+  top:-32px;
 }
 
-.sidebar-nav {
-  position: absolute;
-  top: 0;
-  width: 250px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+#nav.affix {
+   position: fixed;
+   top: 0;
+   z-index:10;
+   -webkit-transition: all .6s ease-in-out;
 }
 
-.sidebar-nav li {
-  line-height: 40px;
-  text-indent: 20px;
+#footer > .container {
+  
 }
 
-.sidebar-nav li a {
-  color: #999999;
-  display: block;
-  text-decoration: none;
+@media (min-width: 767px) {
+  .navbar-nav.nav-justified > li{
+      float:none;
+  }
+}
+.navbar-nav {
+  margin: 1px 1px; 
+}  
+  
+/* customize nav style */
+.navbar-custom {
+    background-color: #000;
+  font-weight:700;
+    text-transform:uppercase;
+    border-width:0;
+}
+.navbar-custom  .navbar-nav>li>a {
+  color: #ddd;
+}
+.navbar-custom  .navbar-nav li>a:hover, .navbar-nav li .open, .navbar-custom .navbar-nav .active a  {
+  background-color: #000;
+}
+.navbar-custom .dropdown-menu{
+  right:0;
+}
+.navbar-custom .navbar-nav>.dropdown>a .caret {
+  border-top-color: #999;
+  border-bottom-color: #999;
 }
 
-.sidebar-nav li a:hover {
-  color: #fff;
-  background: rgba(255,255,255,0.2);
-  text-decoration: none;
+.navbar-collapse.in { /*3.0.2 bug workaround*/
+    overflow-y: visible;
 }
 
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
-  text-decoration: none;
+.navbar-toggle {
+  outline:0;
 }
+/* Navbar ends*/
 
-.sidebar-nav > .sidebar-brand {
-  height: 55px;
-  line-height: 55px;
-  font-size: 18px;
-}
-
-.sidebar-nav > .sidebar-brand a {
-  color: #999999;
-}
-
-.sidebar-nav > .sidebar-brand a:hover {
-  color: #fff;
-  background: none;
-}
-
-#menu-toggle {
-  top: 0;
-  right: 0;
-  position: fixed;
-  z-index: 1;
-}
-
-#sidebar-wrapper.active {
-  right: 250px;
-  width: 250px;
-  -webkit-transition: all 0.4s ease 0s;
-  -moz-transition: all 0.4s ease 0s;
-  -ms-transition: all 0.4s ease 0s;
-  -o-transition: all 0.4s ease 0s;
-  transition: all 0.4s ease 0s;
-}
-
-.toggle {
-  margin: 5px 5px 0 0;
-}
 
 /* Full Page Image Header Area */
-
 .header {
   display: table;
   height: 100%;
   width: 100%;
   position: relative;
-  background: url(../img/sanantonio.jpg) no-repeat center center fixed; 
+  /*background: url(../img/sanantonio.jpg) no-repeat center center fixed; */
+  background-color: #000;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -119,15 +100,17 @@ body {
 }
 
 /* Intro */
-
 .intro {
   padding: 50px 0;
 }
 
-/* Services */
+/* Resume starts */
 
+/* Resume ends */
+
+/* Services */
 .services {
-  background: #7fbbda;
+  background: #000;
   padding: 50px 0;
   color: #ffffff;
 }
@@ -149,13 +132,13 @@ i.service-icon {
 }
 
 /* Callout */
-
 .callout {
   color: #ffffff;
   display: table;
   height: 400px;
   width: 100%;
-  background: url(../img/callout.jpg) no-repeat center center fixed; 
+  background-color: #000;
+  /*background: url(../img/callout.jpg) no-repeat center center fixed; */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -163,7 +146,6 @@ i.service-icon {
 }
 
 /* Portfolio */
-
 .portfolio {
   padding: 50px 0;
 }
@@ -174,25 +156,6 @@ i.service-icon {
 
 .img-portfolio {
   margin: 0 auto;
-}
-
-
-/* Call to Action */
-
-.call-to-action {
-  color: #ffffff;
-  background: #0a5175;
-  padding: 50px 0;
-}
-
-.call-to-action .btn {
-  margin: 10px;
-}
-
-/* Map */
-
-.map {
-  height: 500px;
 }
 
 /* Footer */
@@ -217,8 +180,8 @@ i.scroll {
 i.scroll:hover {
   color: #0a5175;
 }
-/* Responsive */
 
+/* Responsive */
 @media (max-width: 768px) {
 
   .header {
@@ -229,8 +192,62 @@ i.scroll:hover {
 	background: url(../img/callout.jpg) no-repeat center center scroll; 
   }
 
-  .map {
-	height: 75%;
-  }
-
 }
+
+/* Portfolio carousel starts */
+body{padding-top:20px;}
+.carousel {
+    margin-bottom: 0;
+    padding: 0 40px 30px 40px;
+}
+/* The controlsy */
+.carousel-control {
+  left: -12px;
+    height: 40px;
+  width: 40px;
+    background: none repeat scroll 0 0 #222222;
+    border: 4px solid #FFFFFF;
+    border-radius: 23px 23px 23px 23px;
+    margin-top: 90px;
+}
+.carousel-control.right {
+  right: -12px;
+}
+/* The indicators */
+.carousel-indicators {
+  right: 50%;
+  top: auto;
+  bottom: -10px;
+  margin-right: -19px;
+}
+/* The colour of the indicators */
+.carousel-indicators li {
+  background: #cecece;
+}
+.carousel-indicators .active {
+background: #428bca;
+}
+/* Portfolio carousel ends */
+
+/* Contact starts */
+.links {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+a {
+  color: #FFF;
+}
+
+/* Contact modal */
+.btn-default {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.panel-footer {
+  background-color: #FFF;
+  border-top: none;
+}
+
+/* Contact ends */
