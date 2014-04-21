@@ -1,50 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Web Developer</title>
+    <title>Stylish Portfolio Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/welcome-style.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Add custom CSS here -->
-    <link href="css/stylish-portfolio.css" rel="stylesheet">
+    <link href="css/welcome-style.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body>
-
-    <!-- Side Menu -->
-    <a id="menu-toggle" href="#" class="btn btn-primary btn-lg toggle"><i class="fa fa-bars"></i></a>
-    <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <a id="menu-close" href="#" class="btn btn-default btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
-            <li class="sidebar-brand"><a href="http://startbootstrap.com">Start Bootstrap</a>
-            </li>
-            <li><a href="#top">Home</a>
-            </li>
-            <li><a href="#about">About</a>
-            </li>
-            <li><a href="#resume">Resume</a>
-            </li>
-            <li><a href="#portfolio">Portfolio</a>
-            </li>
-            <li><a href="#contact">Contact</a>
-            </li>
-        </ul>
-    </div>
-    <!-- /Side Menu -->
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-custom navbar-inverse navbar-static-top" id="nav">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav nav-justified">
+                    <li class="active"><a href="#top">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Resume</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div><!--/.container -->
+    </div><!--/.navbar -->
 
     <!-- Full Page Image Header Area -->
     <div id="top" class="header">
         <div class="vert-text">
-            <h1>Start Bootstrap</h1>
-            <h3>
-                <em>We</em> Build Great Templates,
-                <em>You</em> Make Them Better</h3>
-            <a href="#about" class="btn btn-default btn-lg">Find Out More</a>
+            <h1>Cecilia Munson</h1>
+            <h3>Full Stack Web Developer</h3>
         </div>
     </div>
     <!-- /Full Page Image Header Area -->
@@ -64,46 +64,31 @@
 
     <!-- Services -->
     <div id="services" class="services">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-md-offset-4 text-center">
-                    <h2>My Resume</h2>
-                    <hr>
+        <div class="tabbable tabs-left">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#pane1" data-toggle="tab">Tab 1</a></li>
+                <li><a href="#pane2" data-toggle="tab">Tab 2</a></li>
+                <li><a href="#pane3" data-toggle="tab">Tab 3</a></li>
+                <li><a href="#pane4" data-toggle="tab">Tab 4</a></li>
+            </ul>
+            <div class="tab-content">
+                <div id="pane1" class="tab-pane active">
+                    <h4>The Markup</h4>
+                    <pre>Code here ...</pre>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2 col-md-offset-2 text-center">
-                    <div class="service-item">
-                        <i class="service-icon fa fa-rocket"></i>
-                        <h4>Spacecraft Repair</h4>
-                        <p>Did your navigation system shut down in the middle of that asteroid field? We can repair any dings and scrapes to your spacecraft!</p>
-                    </div>
+                <div id="pane2" class="tab-pane">
+                <h4>Pane 2 Content</h4>
+                    <p> and so on ...</p>
                 </div>
-                <div class="col-md-2 text-center">
-                    <div class="service-item">
-                        <i class="service-icon fa fa-magnet"></i>
-                        <h4>Problem Solving</h4>
-                        <p>Need to know how magnets work? Our problem solving solutions team can help you identify problems and conduct exploratory research.</p>
-                    </div>
+                <div id="pane3" class="tab-pane">
+                    <h4>Pane 3 Content</h4>
                 </div>
-                <div class="col-md-2 text-center">
-                    <div class="service-item">
-                        <i class="service-icon fa fa-shield"></i>
-                        <h4>Blacksmithing</h4>
-                        <p>Planning a time travel trip to the middle ages? Preserve the space time continuum by blending in with period accurate armor and weapons.</p>
-                    </div>
+                <div id="pane4" class="tab-pane">
+                    <h4>Pane 4 Content</h4>
                 </div>
-                <div class="col-md-2 text-center">
-                    <div class="service-item">
-                        <i class="service-icon fa fa-pencil"></i>
-                        <h4>Pencil Sharpening</h4>
-                        <p>We've been voted the best pencil sharpening service for 10 consecutive years. If you have a pencil that feels dull, we'll get it sharp!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /Services -->
+            </div><!-- /.tab-content -->
+        </div><!-- /.tabbable -->
+    </div><!-- /Services -->
 
     <!-- Callout -->
     <div class="callout">
@@ -118,93 +103,135 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4 text-center">
-                    <h2>Our Work</h2>
+                    <h2>My Work</h2>
                     <hr>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-4 col-md-offset-2 text-center">
-                    <div class="portfolio-item">
-                        <a href="#">
-                            <img class="img-portfolio img-responsive" src="img/portfolio-1.jpg">
-                        </a>
-                        <h4>Cityscape</h4>
-                    </div>
-                </div>
-                <div class="col-md-4 text-center">
-                    <div class="portfolio-item">
-                        <a href="#">
-                            <img class="img-portfolio img-responsive" src="img/portfolio-2.jpg">
-                        </a>
-                        <h4>Is That On Fire?</h4>
-                    </div>
-                </div>
+            <div class="col-md-12">
+                <div id="Carousel" class="carousel slide">
+                 
+                    <ol class="carousel-indicators">
+                        <li data-target="#Carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#Carousel" data-slide-to="1"></li>
+                        <li data-target="#Carousel" data-slide-to="2"></li>
+                    </ol>
+                     
+                    <!-- Carousel items -->
+                    <div class="carousel-inner">
+                        
+                        <div class="item active">
+                            <div class="row">
+                                <div class="col-md-4"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+                                <div class="col-md-4"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+                                <div class="col-md-4"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+                            </div><!--.row-->
+                        </div><!--.item-->
+                         
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-md-4"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+                                <div class="col-md-4"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+                                <div class="col-md-4"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+                            </div><!--.row-->
+                        </div><!--.item-->
+                         
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-md-4"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+                                <div class="col-md-4"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+                                <div class="col-md-4"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
+                            </div><!--.row-->
+                        </div><!--.item-->
+                     
+                    </div><!--.carousel-inner-->
+                    <a data-slide="prev" href="#Carousel" class="left carousel-control">‹</a>
+                    <a data-slide="next" href="#Carousel" class="right carousel-control">›</a>
+                </div><!--.Carousel-->
+                 
             </div>
-            <div class="row">
-                <div class="col-md-4 col-md-offset-2 text-center">
-                    <div class="portfolio-item">
-                        <a href="#">
-                            <img class="img-portfolio img-responsive" src="img/portfolio-3.jpg">
-                        </a>
-                        <h4>Stop Sign</h4>
-                    </div>
-                </div>
-                <div class="col-md-4 text-center">
-                    <div class="portfolio-item">
-                        <a href="#">
-                            <img class="img-portfolio img-responsive" src="img/portfolio-4.jpg">
-                        </a>
-                        <h4>Narrow Focus</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /Portfolio -->
+        </div><!--.container-->
+    </div> <!-- /Portfolio -->
 
-    <!-- Call to Action -->
-    <div class="call-to-action">
+    <!-- Contact -->
+    <div id="contact" class="services">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-md-offset-3 text-center">
-                    <h3>The buttons below are impossible to resist.</h3>
-                    <a href="#" class="btn btn-lg btn-default">Click Me!</a>
-                    <a href="#" class="btn btn-lg btn-primary">Look at Me!</a>
+                <div class="col-md-4 col-md-offset-4 text-center">
+                    <h2>Contact Me</h2>
+                    <hr>
+                </div>
+            </div>
+            <div class="row links">
+                <div class="col-md-2 col-md-offset-2 text-center">
+                    <div class="service-item">
+                        <a  target="_blank" href="http://www.github.com/ceciliamunson"><i class="service-icon fa fa-github fa-3x"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="service-item">
+                        <a target="_blank" href="http://www.linkedin.com/in/ceciliamunson"><i class="service-icon fa fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="service-item">
+                        <a  target="_blank" href="http://www.twitter.com/ceciliamunson"><i class="service-icon fa fa-twitter fa-3x"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="service-item">
+                        <a href="mailto:cecimunson@gmail.com" data-toggle="modal" data-target="#myModal"><i class="service-icon fa fa-envelope-o fa-3x"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- /Call to Action -->
+    <!-- Contact -->
 
-    <!-- Map -->
-    <div id="contact" class="map">
-        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
-        <br />
-        <small>
-            <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
-        </small>
-        </iframe>
+    <!--Contact modal-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h1 class="text-center">Send me a message</h1>
+                </div>
+                <div class="modal-body">
+                    <form action="#" method="post" accept-charset="utf-8" class="form col-md-12 center-block">
+                    <div class="form-group">
+                        <input class="form-control input-lg" name="firstname" placeholder="First name" type="text" required autofocus />
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control input-lg" name="lastname" placeholder="Last name" type="text" required />
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control input-lg" name="email" placeholder="E-mail" type="text" required />
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control input-lg" name="subject" placeholder="Subject" type="text" required />
+                    </div>
+                    <div class="row">
+                        <textarea style="resize:vertical;" class="form-control input-lg" placeholder="Message..." rows="6" name="comment" required></textarea>
+                    </div>  
+                </div>
+                <div class="panel-footer">
+                    <input type="submit" class="btn btn-default" value="Send"/>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- /Map -->
+    <!-- Contact modal -->
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 text-center">
-                    <ul class="list-inline">
-                        <li><i class="fa fa-facebook fa-3x"></i>
-                        </li>
-                        <li><i class="fa fa-twitter fa-3x"></i>
-                        </li>
-                        <li><i class="fa fa-dribbble fa-3x"></i>
-                        </li>
-                    </ul>
                     <div class="top-scroll">
                         <a href="#top"><i class="fa fa-arrow-circle-up scroll fa-4x"></i></a>
                     </div>
                     <hr>
-                    <p>Copyright &copy; Company 2013</p>
+                    <!-- <p>Copyright &copy; Company 2013</p> -->
                 </div>
             </div>
         </div>
@@ -212,8 +239,9 @@
     <!-- /Footer -->
 
     <!-- JavaScript -->
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
 
     <!-- Custom JavaScript for the Side Menu and Smooth Scrolling -->
     <script>
@@ -222,12 +250,14 @@
         $("#sidebar-wrapper").toggleClass("active");
     });
     </script>
+
     <script>
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#sidebar-wrapper").toggleClass("active");
     });
     </script>
+
     <script>
     $(function() {
         $('a[href*=#]:not([href=#])').click(function() {
@@ -246,4 +276,46 @@
     });
     </script>
 
+    <!-- Portfolio caruosel -->
+    <script>
+    $(document).ready(function() {
+        $('#Carousel').carousel({
+            interval: 5000
+        })
+    });
+
+    </script>
+
+    <!-- Contact modal -->
+    <script>
+    $(document).ready(function() {
+        var panels = $('.vote-results');
+        var panelsButton = $('.dropdown-results');
+        panels.hide();
+    
+        //Click dropdown
+        panelsButton.click(function() {
+            //get data-for attribute
+            var dataFor = $(this).attr('data-for');
+            var idFor = $(dataFor);
+    
+            //current button
+            var currentButton = $(this);
+            idFor.slideToggle(400, function() {
+                //Completed slidetoggle
+                if(idFor.is(':visible'))
+                {
+                    currentButton.html('Hide Results');
+                }
+                else
+                {
+                    currentButton.html('View Results');
+                }
+            })
+        });
+    });
+</script>
+
 </body>
+
+</html>
